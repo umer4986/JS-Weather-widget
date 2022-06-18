@@ -43,6 +43,8 @@ window.addEventListener('load', ()=>{
                         fahrenEl.innerHTML = celsius;
                     }
                 })
+            }).catch(error=>{
+                console.log(error)
             })
             let theKey = '85648de2a22ebffa83f7b1ae06a1201e'
             let cityAPIUrl = `http://api.positionstack.com/v1/reverse?access_key=${theKey}&query=${lat},${long}`;
@@ -50,6 +52,8 @@ window.addEventListener('load', ()=>{
                 return cityDataResponse.json();
             }).then(cityData=>{
                 cityEl.innerHTML = cityData.data[0].county;
+            }).catch(cityError=>{
+                console.log(cityError)
             })
         });
     } 
