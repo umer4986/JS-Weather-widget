@@ -31,7 +31,7 @@ window.addEventListener('load', ()=>{
                 iconEl.setAttribute("src",`http://openweathermap.org/img/wn/${iconId}@2x.png`);
                 timezoneEl.innerHTML = returnedData.sys.country;  
                 console.log(returnedData.sys.country);
-
+                console.log(returnedData);
                 degreeSecEl.addEventListener('click',()=>{
                     if(unitEl.innerHTML === "C"){
                         let Fahrenheit =  Math.round(1.8*(returnedData.main.temp-273) + 32);
