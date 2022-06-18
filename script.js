@@ -6,6 +6,7 @@ let degreeSecEl = document.querySelector(".degree-section");
 let unitEl = document.querySelector('.unit');
 let timezoneEl = document.querySelector(".location-timezone");
 let cityEl = document.querySelector(".city-name");
+
 window.addEventListener('load', ()=>{
     var long ;
     var lat ;
@@ -43,8 +44,8 @@ window.addEventListener('load', ()=>{
                     }
                 })
             })
-
-            let cityAPIUrl = `http://api.positionstack.com/v1/reverse?access_key=85648de2a22ebffa83f7b1ae06a1201e&query=${lat},${long}`;
+            let theKey = '85648de2a22ebffa83f7b1ae06a1201e'
+            let cityAPIUrl = `http://api.positionstack.com/v1/reverse?access_key=${theKey}&query=${lat},${long}`;
             fetch(cityAPIUrl).then(cityDataResponse=>{
                 return cityDataResponse.json();
             }).then(cityData=>{
