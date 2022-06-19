@@ -28,7 +28,7 @@ window.addEventListener('load', ()=>{
                 unitEl.innerHTML =  "C";
                 descriptionEl.innerHTML = weatherDescription;
                 let iconId = returnedData.weather[0].icon;
-                iconEl.setAttribute("src",`http://openweathermap.org/img/wn/${iconId}@2x.png`);
+                iconEl.setAttribute("src",`https://openweathermap.org/img/wn/${iconId}@2x.png`);
                 timezoneEl.innerHTML = returnedData.sys.country;  
                 console.log(returnedData.sys.country);
                 console.log(returnedData);
@@ -47,7 +47,7 @@ window.addEventListener('load', ()=>{
                 console.log(error)
             })
             let theKey = '85648de2a22ebffa83f7b1ae06a1201e'
-            let cityAPIUrl = `http://api.positionstack.com/v1/reverse?access_key=${theKey}&query=${lat},${long}`;
+            let cityAPIUrl = `https://api.positionstack.com/v1/reverse?access_key=${theKey}&query=${lat},${long}`;
             fetch(cityAPIUrl).then(cityDataResponse=>{
                 return cityDataResponse.json();
             }).then(cityData=>{
