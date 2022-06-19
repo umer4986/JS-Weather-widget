@@ -1,4 +1,3 @@
-//to get longitude and latitude
 let fahrenEl = document.querySelector(".temperature-degree");
 let descriptionEl = document.querySelector('.temperature-description');
 let iconEl = document.querySelector(".weather-icon");
@@ -30,8 +29,7 @@ window.addEventListener('load', ()=>{
                 let iconId = returnedData.weather[0].icon;
                 iconEl.setAttribute("src",`https://openweathermap.org/img/wn/${iconId}@2x.png`);
                 timezoneEl.innerHTML = returnedData.sys.country;  
-                console.log(returnedData.sys.country);
-                console.log(returnedData);
+                cityEl.innerHTML = returnedData.name;
                 degreeSecEl.addEventListener('click',()=>{
                     if(unitEl.innerHTML === "C"){
                         let Fahrenheit =  Math.round(1.8*(returnedData.main.temp-273) + 32);
@@ -46,15 +44,7 @@ window.addEventListener('load', ()=>{
             }).catch(error=>{
                 console.log(error)
             })
-            let theKey = '85648de2a22ebffa83f7b1ae06a1201e'
-            let cityAPIUrl = `https://api.positionstack.com/v1/reverse?access_key=${theKey}&query=${lat},${long}`;
-            fetch(cityAPIUrl).then(cityDataResponse=>{
-                return cityDataResponse.json();
-            }).then(cityData=>{
-                cityEl.innerHTML = cityData.data[0].county;
-            }).catch(cityError=>{
-                console.log(cityError)
-            })
+            
         });
     } 
 });
